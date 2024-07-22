@@ -10,18 +10,6 @@ const userSchema = new mongoose.Schema(
       unique: true,
     },
     password: { type: String, required: true },
-    // userCategories: [
-    //   {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: "Category",
-    //   },
-    // ],
-    // userTasks: [
-    //   {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: "Task",
-    //   },
-    // ],
   },
   {
     timestamps: true,

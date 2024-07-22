@@ -92,14 +92,6 @@ const getPrivateCat = errorHandler(async (req, res, next) => {
     _id: req.params.id,
     addedBy: req.user._id,
   });
-  // if (category?.sharingStatus == "Public") {
-  //   return next(
-  //     new AppError(
-  //       "this is not a private category to access public categories, request on the public categories end points",
-  //       404
-  //     )
-  //   );
-  // }
   category ?? next(new AppError("category not found", 404));
   category && res.status(200).json({ msg: "success", category });
 });

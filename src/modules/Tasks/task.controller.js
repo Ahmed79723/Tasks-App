@@ -52,26 +52,11 @@ const updateTask = errorHandler(async (req, res, next) => {
 const deleteTask = errorHandler(async (req, res, next) => {
   const task = await Task.findByIdAndDelete(req.params.id);
   if (task) {
-    // console.log("x0", task);
-    // console.log("task._id", task._id);
     const categories = await Category.findOneAndUpdate(
       { tasks: task._id },
       { $pull: { tasks: task._id } },
       { new: true }
     );
-    // console.log("x1", categories);
-    // for (const category of categories) {
-    //   console.log("x2", category);
-    //   const array = category.tasks;
-    //   const itemToRemove = task._id;
-    //   const updatedCategoryTasks = array.filter(
-    //     (item) => item.toString() !== itemToRemove.toString()
-    //   );
-    //   console.log("x3 updatedCategoryTasks", updatedCategoryTasks);
-    //   category.tasks = updatedCategoryTasks;
-    //   console.log("x4 category", category);
-    //   await category.save();
-    // }
     res.status(200).json({ msg: "task deleted", task });
   }
   task ?? next(new AppError(`task not found`, 404));

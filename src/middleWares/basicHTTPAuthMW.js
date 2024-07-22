@@ -3,7 +3,6 @@ import { AppError } from "../utils/appError.js";
 import { errorHandler } from "./errorHandler.js";
 
 const basicAuth = errorHandler(async (req, res, next) => {
-  console.log("basic");
   const authHeader = req.headers.authorization;
 
   if (!authHeader) {

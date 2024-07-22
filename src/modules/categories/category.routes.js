@@ -5,7 +5,6 @@ import { addCatVal, updateCatVal } from "./category.validation.js";
 import basicAuth from "../../middleWares/basicHTTPAuthMW.js";
 import { allCatMW } from "../../middleWares/allCatMW.js";
 import { addCatDataMW } from "../../middleWares/addCatDataMW.js";
-import { checkCatStatusMW } from "../../middleWares/checkCatStatusMW.js";
 
 const categoryRouter = Router();
 
